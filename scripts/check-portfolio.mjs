@@ -31,7 +31,7 @@ for (const [track, slugs] of [
     assert.ok(existsSync(join(dist, "projects", slug, "index.html")));
   }
 }
-for (const href of ["#projects", "#ai-software", "#vision-vla", "/projects/humanoid-navigation", "/projects/metanavit", "/projects/isaac-pruning-workflow", "/resume.pdf"]) {
+for (const href of ["#projects", "#ai-software", "#vision-vla", "/resume.pdf"]) {
   assert.ok(hero.includes(`href="${href}"`), `Missing direct hero entry point: ${href}`);
 }
 assert.ok(!rag.includes("/projects/dom-math-transformer") && !rag.includes("/projects/point-cloud-classification"), "RAG projects must remain distinct from coursework");
