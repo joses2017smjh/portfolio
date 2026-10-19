@@ -14,6 +14,8 @@ const vision = projects.filter((p) => p.data.track === "vision");
 const coursework = projects.filter((p) => p.data.track === "coursework");
 const teleop = projects.find((p) => p.id === "berkeley-humanoid-vr");
 if (!teleop) throw new Error("The physical robotics case study is missing.");
+// A wrapped timeline line never starts with the " · " separator.
+const keepDot = (text: string) => text.replaceAll(" · ", " · ");
 ---
 
 <Base title={`${site.name} — Robotics, Computer Vision & AI Software`} description={`${site.positioning} ${site.seeking}`} full demoToggle={false}>
@@ -49,14 +51,15 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
         <h2 id="background-title">Education & experience</h2>
         <ol class="education-timeline" aria-label="Education and experience timeline">
           {resume.timeline.map((entry) => (
-            <li>
+            <li class:list={{ graduation: entry.graduation }}>
               <time datetime={entry.datetime}>{entry.date}</time>
               <div>
-                <h3>{entry.title}</h3>
-                <p>{entry.focus}</p>
+                {entry.graduation && <p class="graduation-tag">Graduated</p>}
+                <h3>{keepDot(entry.title)}</h3>
+                {entry.focus && <p>{keepDot(entry.focus)}</p>}
                 {entry.roles.length > 0 && (
                   <ul>
-                    {entry.roles.map((role) => <li>{role}</li>)}
+                    {entry.roles.map((role) => <li>{keepDot(role)}</li>)}
                   </ul>
                 )}
               </div>

@@ -462,10 +462,13 @@ a:focus-visible {
   margin: 0;
 }
 
+/* The education timeline sits on its own panel, apart from the intro. */
 .education-overview {
+  --panel: var(--surface);
   min-width: 0;
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--hairline);
+  padding: var(--space-2);
+  background: var(--panel);
+  border-radius: 4px;
 }
 
 .education-overview h2 {
@@ -501,7 +504,7 @@ a:focus-visible {
   bottom: 0;
   width: 1px;
   transform: translateX(-50%);
-  background: var(--hairline);
+  background: color-mix(in srgb, var(--text) 15%, transparent);
 }
 
 .education-timeline > li:first-child::after {
@@ -524,7 +527,7 @@ a:focus-visible {
   border-radius: 50%;
   transform: translateX(-50%);
   background: var(--blue);
-  box-shadow: 0 0 0 2px var(--bg);
+  box-shadow: 0 0 0 2px var(--panel, var(--bg));
 }
 
 .education-timeline time {
@@ -542,6 +545,7 @@ a:focus-visible {
   grid-column: 3;
   grid-row: 1;
   min-width: 0;
+  text-wrap: balance;
 }
 
 .education-timeline > li:nth-child(even) time {
@@ -571,6 +575,40 @@ a:focus-visible {
   line-height: 1.35;
 }
 
+/* Graduations close each degree: ringed dot, accent label, and room around them. */
+.education-timeline > li:has(+ .graduation) {
+  padding-bottom: 1.5rem;
+}
+
+.education-timeline > li.graduation:not(:last-child) {
+  padding-bottom: 2rem;
+}
+
+.education-timeline > li.graduation::before {
+  top: 0.1rem;
+  width: 11px;
+  height: 11px;
+  box-shadow: 0 0 0 2px var(--panel, var(--bg)), 0 0 0 4px color-mix(in srgb, var(--blue) 30%, transparent);
+}
+
+.education-timeline > li.graduation time {
+  color: var(--blue);
+}
+
+.education-timeline .graduation-tag {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1.3;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.education-timeline > li.graduation h3 {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
 .resume-updated {
   margin: var(--space-1) 0 0;
 }
@@ -586,16 +624,13 @@ a:focus-visible {
 
 @media (min-width: 64rem) {
   .portfolio-hero {
-    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-    gap: var(--space-3);
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--space-4);
     align-items: start;
   }
 
   .education-overview {
-    border-top: 0;
-    border-left: 1px solid var(--hairline);
-    padding-top: 0;
-    padding-left: var(--space-2);
+    padding: var(--space-3) var(--space-2);
   }
 }
 

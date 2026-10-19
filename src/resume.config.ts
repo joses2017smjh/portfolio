@@ -60,9 +60,10 @@ export const resume = {
     {
       date: "Jun 2025",
       datetime: "2025-06",
-      title: "B.S. Computer Science completed",
+      title: "B.S. Computer Science",
       focus: "Applied Data Science · Mathematics minor",
       roles: [],
+      graduation: true,
     },
     {
       date: "Fall 2025",
@@ -83,7 +84,15 @@ export const resume = {
       datetime: "2026",
       title: "Operating Systems I",
       focus: "Term 3 · Graduate Teaching Assistant",
-      roles: ["M.S. completed June 2026"],
+      roles: [],
+    },
+    {
+      date: "Jun 2026",
+      datetime: "2026-06",
+      title: "M.S. Artificial Intelligence",
+      focus: "",
+      roles: [],
+      graduation: true,
     },
   ],
   skills: [
