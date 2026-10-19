@@ -16,6 +16,17 @@ const teleop = projects.find((p) => p.id === "berkeley-humanoid-vr");
 if (!teleop) throw new Error("The physical robotics case study is missing.");
 // A wrapped timeline line never starts with the " · " separator.
 const keepDot = (text: string) => text.replaceAll(" · ", " · ");
+// Splits a timeline line around the entry's role so the role renders bold.
+const withRole = (text: string, role?: string) => {
+  const line = keepDot(text);
+  const at = role ? line.indexOf(role) : -1;
+  if (!role || at < 0) return [{ text: line, bold: false }];
+  return [
+    { text: line.slice(0, at), bold: false },
+    { text: role, bold: true },
+    { text: line.slice(at + role.length), bold: false },
+  ];
+};
 ---
 
 <Base title={`${site.name} — Robotics, Computer Vision & AI Software`} description={`${site.positioning} ${site.seeking}`} full demoToggle={false}>
@@ -55,8 +66,8 @@ const keepDot = (text: string) => text.replaceAll(" · ", " · ");
               <time datetime={entry.datetime}>{entry.date}</time>
               <div>
                 {entry.graduation && <p class="graduation-tag">Graduated</p>}
-                <h3>{keepDot(entry.title)}</h3>
-                {entry.focus && <p>{keepDot(entry.focus)}</p>}
+                <h3>{withRole(entry.title, entry.experience).map((part) => part.bold ? <strong>{part.text}</strong> : part.text)}</h3>
+                {entry.focus && <p>{withRole(entry.focus, entry.experience).map((part) => part.bold ? <strong>{part.text}</strong> : part.text)}</p>}
                 {entry.roles.length > 0 && (
                   <ul>
                     {entry.roles.map((role) => <li>{keepDot(role)}</li>)}

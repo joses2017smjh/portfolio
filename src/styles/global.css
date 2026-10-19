@@ -472,7 +472,7 @@ a:focus-visible {
 }
 
 .education-overview h2 {
-  margin: 0 0 var(--space-2);
+  margin: 0 0 0.75rem;
   font-family: var(--font-sans);
   font-size: var(--text-md);
   font-weight: 500;
@@ -488,7 +488,7 @@ a:focus-visible {
   grid-template-columns: minmax(0, 1fr) 1.25rem minmax(0, 1fr);
   align-items: baseline;
   column-gap: var(--space-1);
-  padding-bottom: 0.95rem;
+  padding-bottom: 0.7rem;
 }
 
 .education-timeline > li:last-child {
@@ -575,13 +575,19 @@ a:focus-visible {
   line-height: 1.35;
 }
 
+/* Roles (tutor, researcher, teaching assistant) read as the experience. */
+.education-timeline strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
 /* Graduations close each degree: ringed dot, accent label, and room around them. */
 .education-timeline > li:has(+ .graduation) {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1.1rem;
 }
 
 .education-timeline > li.graduation:not(:last-child) {
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 
 .education-timeline > li.graduation::before {
@@ -592,12 +598,13 @@ a:focus-visible {
 }
 
 .education-timeline > li.graduation time {
+  font-size: var(--text-xs);
   color: var(--blue);
 }
 
 .education-timeline .graduation-tag {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   line-height: 1.3;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -605,8 +612,12 @@ a:focus-visible {
 }
 
 .education-timeline > li.graduation h3 {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 600;
+}
+
+.education-timeline > li.graduation h3 + p {
+  font-size: var(--text-sm);
 }
 
 .resume-updated {
@@ -623,14 +634,22 @@ a:focus-visible {
 }
 
 @media (min-width: 64rem) {
+  /* The intro centers on the timeline panel, which sits close to the header. */
   .portfolio-hero {
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: var(--space-4);
-    align-items: start;
+    align-items: center;
+    padding-top: var(--space-2);
   }
 
   .education-overview {
-    padding: var(--space-3) var(--space-2);
+    padding: 1.25rem var(--space-2);
+  }
+}
+
+@media (max-width: 34rem) {
+  .education-timeline > li.graduation h3 + p {
+    font-size: var(--text-xs);
   }
 }
 

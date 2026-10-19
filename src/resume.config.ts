@@ -49,6 +49,7 @@ export const resume = {
       title: "Math & computer science tutor",
       focus: "Undergraduate years 2–4",
       roles: [],
+      experience: "Math & computer science tutor",
     },
     {
       date: "Winter 2024",
@@ -56,6 +57,7 @@ export const resume = {
       title: "IDEA Lab researcher",
       focus: "Year 3 · Term 2 · 3 months",
       roles: [],
+      experience: "IDEA Lab researcher",
     },
     {
       date: "Jun 2025",
@@ -71,6 +73,7 @@ export const resume = {
       title: "M.S. Artificial Intelligence · Term 1",
       focus: "Graduate Teaching Assistant",
       roles: ["COMSOL Multiphysics simulation"],
+      experience: "Graduate Teaching Assistant",
     },
     {
       date: "Winter 2026",
@@ -78,6 +81,7 @@ export const resume = {
       title: "COMSOL Multiphysics simulation",
       focus: "Term 2 · Graduate Teaching Assistant",
       roles: [],
+      experience: "Graduate Teaching Assistant",
     },
     {
       date: "Spring 2026",
@@ -85,6 +89,7 @@ export const resume = {
       title: "Operating Systems I",
       focus: "Term 3 · Graduate Teaching Assistant",
       roles: [],
+      experience: "Graduate Teaching Assistant",
     },
     {
       date: "Jun 2026",
