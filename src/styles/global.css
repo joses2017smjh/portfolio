@@ -629,10 +629,6 @@ a:focus-visible {
   gap: var(--space-1) var(--space-2);
 }
 
-.resume-downloads + .resume-downloads {
-  margin-top: var(--space-1);
-}
-
 @media (min-width: 64rem) {
   /* The intro centers on the timeline panel, which sits close to the header. */
   .portfolio-hero {

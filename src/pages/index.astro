@@ -44,15 +44,10 @@ const withRole = (text: string, role?: string) => {
         </ul>
         <div class="hero-resume" id="resume">
           <ul class="link-row resume-downloads">
-            <li><a href={resume.links.pdf}>Download résumé <span class="file-type">PDF</span></a></li>
-            {resume.links.variants.filter((variant) => variant.href !== resume.links.pdf).map((variant) => (
-              <li><a href={variant.href}>{variant.label} <span class="file-type">PDF</span></a></li>
-            ))}
-          </ul>
-          <ul class="link-row resume-downloads">
             <li><a href={resume.links.linkedin}>LinkedIn</a></li>
             <li><a href="https://github.com/joses2017smjh">GitHub</a></li>
             <li><a href={`mailto:${site.email}`}>Get in touch</a></li>
+            <li><a href={resume.links.pdf}>Download résumé <span class="file-type">PDF</span></a></li>
           </ul>
           <p class="meta resume-updated">Résumé updated October 18, 2026</p>
         </div>
