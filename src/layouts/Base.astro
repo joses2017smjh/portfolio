@@ -7,6 +7,7 @@ import "../styles/global.css";
 // in the body below; the component is untouched.
 // import LiquidCursor from "../components/LiquidCursor.astro";
 import { site } from "../site.config";
+import { resume } from "../resume.config";
 import StripCounter from "../components/StripCounter.astro";
 
 interface Props {
@@ -74,11 +75,11 @@ const person = {
     <header class="site-header">
       <a href="/" aria-current={current("/")}>{site.name}</a>
       <nav aria-label="Site">
-        <a href="/#projects">Humanoids</a>
-        <a href="/#beyond">Hardware</a>
+        <a href="/#projects">Humanoid + hardware</a>
         <a href="/#ai-software">RAG & agents</a>
         <a href="/#vision-vla">Vision & VLA</a>
         <a href="/#resume">Resume</a>
+        <a href={resume.links.linkedin}>LinkedIn</a>
         <a href="/now" aria-current={current("/now")}>Now</a>
       </nav>
     </header>

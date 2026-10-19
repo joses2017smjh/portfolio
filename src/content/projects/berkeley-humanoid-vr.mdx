@@ -1,7 +1,7 @@
 ---
 track: hardware
-title: "Berkeley Humanoid VR"
-summary: "Quest controllers drive physical humanoid arms through inverse kinematics and calibrated CAN commands."
+title: "Berkeley Humanoid AR/VR"
+summary: "Quest AR/VR software connects controller tracking to physical humanoid arms and live sensor feedback."
 problem: >-
   Quest controllers need a reliable path from tracked poses to calibrated robot joints.
   My Berkeley Humanoid Lite build also needed motion gating and an interface matched
@@ -20,7 +20,7 @@ result: >-
   24 report marks all ten arm joints OK; one wrist reaches 90% of ±10° step commands
   in 0.23–0.25 s. This demonstrates simulation-to-hardware integration, not learned
   locomotion-policy transfer or a general manipulation success rate.
-tags: ["Python", "WebXR", "Quest 2", "Inverse Kinematics", "SocketCAN", "Pinocchio", "OpenCV", "Robotics"]
+tags: ["Python", "WebXR", "Quest 2", "Inverse Kinematics", "SocketCAN", "Pinocchio", "OpenCV", "Robotics", "AR/VR"]
 repo: https://github.com/joses2017smjh/quest-vr-teleop
 demo: https://jose-sanchez-portfolio-com.vercel.app/media/humanoid-vr/quest-vr-teleop.mp4
 links:
@@ -36,17 +36,23 @@ video: /media/humanoid-vr/quest-vr-teleop.mp4
 poster: /media/humanoid-vr/quest-vr-teleop.jpg
 image: /media/humanoid-vr/quest-vr-teleop.jpg
 alt: "Physical arm teleoperation, developer mode, IMU telemetry, lidar scans, robot model and joint calibration."
-figcaption: "16.5 s: teleop → developer → diagnostics → model / calibration. Overview combines frames; stereo 1.5×."
+figcaption: "AR passthrough shows the real robot in-headset; this Quest recording omits it. 16.5 s edited montage."
 date: 2026-10-14
 order: 9
 featured: true
 card:
-  title: "Humanoid VR Teleoperation"
-  summary: "Built a Quest VR interface to control my physical humanoid's arms."
+  title: "Humanoid AR/VR Teleoperation"
+  summary: "Built Quest AR/VR software to control my physical humanoid's arms."
   evidence: "10 calibrated arm joints; physical teleoperation demonstrated."
-  caption: "Quest 2 control on Berkeley Humanoid Lite."
-  tags: ["Python","Inverse Kinematics","SocketCAN"]
+  caption: "AR: robot visible in-headset; passthrough is missing from this Quest recording."
+  tags: ["WebXR","Inverse Kinematics","SocketCAN"]
 sections:
+  - heading: AR passthrough and the recording
+    body: >-
+      The operator sees the real robot through Quest AR passthrough, with controls and
+      sensor panels overlaid. This recording captures the software views but omits
+      the passthrough camera feed, so the robot is not visible in those views.
+      The 16.5-second montage combines frames; stereo views play at 1.5×.
   - heading: One interface, two backends
     body: >-
       The offline arm model includes joint PD control, gravity, friction, torque limits,

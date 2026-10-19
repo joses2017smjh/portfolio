@@ -25,8 +25,7 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
         <p class="hero-role">{site.seeking}</p>
         <p class="hero-intro">Humanoid control, agents that retrieve and use evidence, and vision-guided manipulation. Explore the demos, then follow each result to its code and evaluation.</p>
         <ul class="link-row hero-actions">
-          <li><a class="button-link" href="#projects">Humanoid simulation</a></li>
-          <li><a class="button-link button-secondary" href="#beyond">Physical robotics</a></li>
+          <li><a class="button-link" href="#projects">Humanoid + hardware</a></li>
           <li><a class="button-link button-secondary" href="#ai-software">RAG & agents</a></li>
           <li><a class="button-link button-secondary" href="#vision-vla">Computer vision & VLA</a></li>
           <li><a href={resume.links.pdf}>Download résumé <span class="file-type">PDF</span></a></li>
@@ -37,7 +36,7 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
         <h2>Start with a demo</h2>
         <ul class="project-starts">
           <li><a href="/projects/humanoid-navigation">Walk through an unfamiliar maze <span aria-hidden="true">&rarr;</span></a><span>Simulated humanoid · lidar mapping · planning</span></li>
-          <li><a href="/projects/berkeley-humanoid-vr">Control physical robot arms from VR <span aria-hidden="true">&rarr;</span></a><span>Quest tracking · inverse kinematics · SocketCAN</span></li>
+          <li><a href="/projects/berkeley-humanoid-vr">Control physical robot arms in AR <span aria-hidden="true">&rarr;</span></a><span>Quest AR/VR · inverse kinematics · SocketCAN</span></li>
           <li><a href="/projects/metanavit">Trace an answer to its source <span aria-hidden="true">&rarr;</span></a><span>Agentic RAG · retrieval evaluation · MCP</span></li>
           <li><a href="/projects/isaac-pruning-workflow">Guide a pruning arm with vision <span aria-hidden="true">&rarr;</span></a><span>RGB-D control · Isaac Sim · contact gates</span></li>
         </ul>
@@ -48,64 +47,64 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
       <div class="section-heading">
         <div>
           <p class="eyebrow">01 · Robotics & embodied AI</p>
-          <h2 id="work-title">Humanoid Simulation</h2>
+          <h2 id="work-title">Humanoid + Hardware</h2>
         </div>
       </div>
+      <h3 class="project-group-title">Simulation</h3>
       <ul class="project-grid project-grid-three">
         {humanoid.map((project) => <ProjectItem project={project} number={projects.indexOf(project) + 1} />)}
       </ul>
-    </section>
-
-    <section class="work-section hardware-section" id="beyond" aria-labelledby="hardware-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">From simulation to the workshop</p>
-          <h2 id="hardware-title">Physical Robotics</h2>
-        </div>
-      </div>
-      <article class="hardware-showcase">
-        <div class="hardware-demo">
-          <Figure
-            number={projects.indexOf(teleop) + 1}
-            video={teleop.data.video}
-            poster={teleop.data.poster}
-            alt={teleop.data.alt}
-            caption={teleop.data.card.caption}
-          />
-          <div class="hardware-dashboard-link">
-            <a href="/media/humanoid-vr/operator-dashboard.jpg">Operator panels</a>
-            <span aria-hidden="true"> · </span>
-            <a href="/media/humanoid-vr/imu-telemetry-full-panel.jpg">Full telemetry panel</a>
+      <section class="hardware-section" id="beyond" aria-labelledby="hardware-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">From simulation to the workshop</p>
+            <h3 id="hardware-title">Physical Hardware & AR/VR</h3>
           </div>
         </div>
-        <div class="hardware-copy">
-          <h3>{teleop.data.card.title}</h3>
-          <p class="hardware-intro">{teleop.data.card.summary}</p>
-          <p class="project-evidence">{teleop.data.card.evidence}</p>
-          <TagList tags={teleop.data.card.tags} />
-          <ul class="link-row hardware-actions">
-            <li><a class="button-link" href="/projects/berkeley-humanoid-vr">View project</a></li>
-            <li><a href={teleop.data.repo}>GitHub</a></li>
-            <li><a href="/beyond/humanoid">Build log <span aria-hidden="true">&rarr;</span></a></li>
-          </ul>
-          <div class="hardware-build-grid">
-            <figure>
-              <a class="hardware-build-frame" href="/beyond/humanoid">
-                <img src="/media/humanoid/26-fully-built-movement.jpg" alt="Fully assembled Berkeley Humanoid Lite on a support rack, with its arms, legs, and external wiring visible." width="1200" height="1600" loading="lazy" decoding="async" />
-              </a>
-              <figcaption>The complete physical build.</figcaption>
-            </figure>
-            <figure>
-              <div class="hardware-build-frame">
-                <video controls data-loop loop playsinline muted preload="none" poster="/media/humanoid-vr/supported-leg-motion.jpg" aria-label="Seven-second leg-motion loop with the assembled humanoid supported by a rack.">
-                  <source src="/media/humanoid-vr/supported-leg-motion.mp4" type="video/mp4" />
-                </video>
-              </div>
-              <figcaption>Supported leg-motion test · 7 s · <a href="/media/humanoid-vr/supported-leg-motion.gif">GIF</a></figcaption>
-            </figure>
+        <article class="hardware-showcase">
+          <div class="hardware-demo">
+            <Figure
+              number={projects.indexOf(teleop) + 1}
+              video={teleop.data.video}
+              poster={teleop.data.poster}
+              alt={teleop.data.alt}
+              caption={teleop.data.card.caption}
+            />
+            <div class="hardware-dashboard-link">
+              <a href="/media/humanoid-vr/operator-dashboard.jpg">Operator panels</a>
+              <span aria-hidden="true"> · </span>
+              <a href="/media/humanoid-vr/imu-telemetry-full-panel.jpg">Full telemetry panel</a>
+            </div>
           </div>
-        </div>
-      </article>
+          <div class="hardware-copy">
+            <h4>{teleop.data.card.title}</h4>
+            <p class="hardware-intro">{teleop.data.card.summary}</p>
+            <p class="project-evidence">{teleop.data.card.evidence}</p>
+            <TagList tags={teleop.data.card.tags} />
+            <ul class="link-row hardware-actions">
+              <li><a class="button-link" href="/projects/berkeley-humanoid-vr">View project</a></li>
+              <li><a href={teleop.data.repo}>GitHub</a></li>
+              <li><a href="/beyond/humanoid">Build log <span aria-hidden="true">&rarr;</span></a></li>
+            </ul>
+            <div class="hardware-build-grid">
+              <figure>
+                <a class="hardware-build-frame" href="/beyond/humanoid">
+                  <img src="/media/humanoid/26-fully-built-movement.jpg" alt="Fully assembled Berkeley Humanoid Lite on a support rack, with its arms, legs, and external wiring visible." width="1200" height="1600" loading="lazy" decoding="async" />
+                </a>
+                <figcaption>The complete physical build.</figcaption>
+              </figure>
+              <figure>
+                <div class="hardware-build-frame">
+                  <video controls data-loop loop playsinline muted preload="none" poster="/media/humanoid-vr/supported-leg-motion.jpg" aria-label="Seven-second leg-motion loop with the assembled humanoid supported by a rack.">
+                    <source src="/media/humanoid-vr/supported-leg-motion.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <figcaption>Supported leg-motion test · 7 s · <a href="/media/humanoid-vr/supported-leg-motion.gif">GIF</a></figcaption>
+              </figure>
+            </div>
+          </div>
+        </article>
+      </section>
     </section>
 
     <section class="work-section" id="ai-software" aria-labelledby="ai-title">
@@ -152,10 +151,22 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
 
     <section class="about-work" id="resume" aria-labelledby="background-title">
       <div>
-        <p class="eyebrow">Background</p>
-        <h2 id="background-title">Research, implementation, and teaching</h2>
-        <p>{site.bio}</p>
-        <p>At Oregon State, I led operating systems and computational methods studios and tutored more than 50 students in mathematics and computer science.</p>
+        <p class="eyebrow">Oregon State University</p>
+        <h2 id="background-title">Education & experience</h2>
+        <ol class="education-timeline" aria-label="Education and experience timeline">
+          {resume.timeline.map((entry) => (
+            <li>
+              <time datetime={entry.datetime}>{entry.date}</time>
+              <div>
+                <h3>{entry.degree}</h3>
+                <p>{entry.focus}</p>
+                <ul>
+                  {entry.roles.map((role) => <li>{role}</li>)}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ol>
         <ul class="link-row">
           <li><a class="button-link" href={resume.links.pdf}>Read my résumé <span class="file-type">PDF</span></a></li>
           {resume.links.variants.map((variant) => (
@@ -164,6 +175,7 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <li><a href={resume.links.linkedin}>LinkedIn</a></li>
           <li><a href="https://github.com/joses2017smjh">GitHub profile</a></li>
         </ul>
+        <p class="meta resume-updated">Résumé updated October 18, 2026</p>
       </div>
     </section>
 

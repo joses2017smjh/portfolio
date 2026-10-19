@@ -15,7 +15,7 @@ const humanoid = section("projects");
 const rag = section("ai-software");
 const vision = section("vision-vla");
 const hero = section("about");
-assert.ok(humanoid, "Humanoid Simulation row must exist");
+assert.ok(humanoid, "Combined humanoid and hardware section must exist");
 assert.ok(rag, "RAG & Agents row must exist");
 assert.ok(vision, "Computer Vision & VLA row must exist");
 assert.ok(home.indexOf(humanoid) < home.indexOf(rag) && home.indexOf(rag) < home.indexOf(vision), "Featured rows must stay in the requested order");
@@ -40,7 +40,9 @@ assert.ok(home.indexOf(humanoid) < home.indexOf(section("beyond")) && home.index
 for (const media of ["/media/humanoid-vr/quest-vr-teleop.mp4", "/media/humanoid/26-fully-built-movement.jpg", "/media/humanoid-vr/supported-leg-motion.mp4"]) {
   assert.ok(section("beyond").includes(media), `Missing physical robotics media: ${media}`);
 }
-assert.ok(!humanoid.includes("/projects/berkeley-humanoid-vr"), "Physical VR control belongs in Hardware");
+assert.ok(humanoid.includes("/projects/berkeley-humanoid-vr"), "Physical hardware must be grouped with humanoid simulation");
+assert.ok(home.includes('href="https://www.linkedin.com/in/jose-j-sanchez-gonzalez/">LinkedIn</a>'), "LinkedIn tab must use the current profile URL");
+assert.ok(section("beyond").includes("passthrough is missing from this Quest recording"), "The AR recording limitation must appear beside Figure 9");
 const vr = readPage("projects/berkeley-humanoid-vr");
 const vrPanelNames = ["developer-mode.jpg", "sensor-diagnostics.jpg", "calibration-onshape.jpg"];
 const vrPanelPositions = vrPanelNames.map((name) => vr.indexOf(name));

@@ -13,7 +13,7 @@ export const resume = {
   links: {
     pdf: "/resume.pdf",
     overleaf: "https://www.overleaf.com/read/fnncbxtzykhz#40bcb3",
-    linkedin: "https://linkedin.com/in/jose-j-sanchez-gonzalez-84a800257/",
+    linkedin: "https://www.linkedin.com/in/jose-j-sanchez-gonzalez/",
     variants: [
       { label: "AI/ML", href: "/resume.pdf" },
       { label: "Robotics", href: "/resumes/resume_robotics.pdf" },
@@ -22,7 +22,7 @@ export const resume = {
     ],
   },
   summary:
-    "Robotics and AI/ML engineer building perception, control, and evaluation software. Projects include synthetic metric-depth models and an inference API, vision-guided pruning in Isaac Sim, cross-simulator humanoid studies, Quest VR arm teleoperation, and evaluated retrieval systems.",
+    "Robotics and AI software engineer building humanoid hardware, simulation, and AR/VR interfaces. Projects include Quest arm teleoperation, cross-simulator policy evaluation, MetaNaviT retrieval, vision-guided pruning, and metric-depth inference.",
   education: [
     {
       degree: "MS, Artificial Intelligence",
@@ -33,6 +33,25 @@ export const resume = {
       degree: "BS, Computer Science (Applied — Data Science), Math minor",
       school: "Oregon State University",
       when: "Jun 2025",
+    },
+  ],
+  timeline: [
+    {
+      date: "Jun 2025",
+      datetime: "2025-06",
+      degree: "B.S. Computer Science",
+      focus: "Applied Data Science · Mathematics minor",
+      roles: [
+        "Years 2–4 · Math & computer science tutor",
+        "Year 3 · IDEA Lab researcher · 3 months",
+      ],
+    },
+    {
+      date: "Jun 2026",
+      datetime: "2026-06",
+      degree: "M.S. Artificial Intelligence",
+      focus: "Graduate Teaching Assistant",
+      roles: ["Operating Systems · COMSOL Multiphysics simulation"],
     },
   ],
   skills: [
