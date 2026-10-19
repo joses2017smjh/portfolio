@@ -15,9 +15,11 @@ interface Props {
   description: string;
   /** Full-bleed pages (the panel homepage) skip the centered column. */
   full?: boolean;
+  /** Pages that place their own #demo-playback button pass false. */
+  demoToggle?: boolean;
 }
 
-const { title, description, full = false } = Astro.props;
+const { title, description, full = false, demoToggle = true } = Astro.props;
 const path = Astro.url.pathname;
 const current = (href: string) =>
   (href === "/" ? path === "/" : path.startsWith(href)) ? "page" : undefined;
@@ -83,9 +85,11 @@ const person = {
         <a href="/now" aria-current={current("/now")}>Now</a>
       </nav>
     </header>
-    <div class="media-controls">
-      <button id="demo-playback" type="button" hidden>Pause demos</button>
-    </div>
+    {demoToggle && (
+      <div class="media-controls">
+        <button id="demo-playback" type="button" hidden>Pause demos</button>
+      </div>
+    )}
     <main id="main" class:list={{ full }}>
       <slot />
     </main>

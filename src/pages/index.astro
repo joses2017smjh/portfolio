@@ -16,7 +16,7 @@ const teleop = projects.find((p) => p.id === "berkeley-humanoid-vr");
 if (!teleop) throw new Error("The physical robotics case study is missing.");
 ---
 
-<Base title={`${site.name} — Robotics, Computer Vision & AI Software`} description={`${site.positioning} ${site.seeking}`} full>
+<Base title={`${site.name} — Robotics, Computer Vision & AI Software`} description={`${site.positioning} ${site.seeking}`} full demoToggle={false}>
   <div class="portfolio-home">
     <section class="portfolio-hero" id="about" aria-labelledby="hero-title">
       <div class="hero-copy">
@@ -28,11 +28,23 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <li><a class="button-link" href="#projects">Humanoid + hardware</a></li>
           <li><a class="button-link button-secondary" href="#ai-software">RAG & agents</a></li>
           <li><a class="button-link button-secondary" href="#vision-vla">Computer vision & VLA</a></li>
-          <li><a href={resume.links.pdf}>Download résumé <span class="file-type">PDF</span></a></li>
-          <li><a href={`mailto:${site.email}`}>Get in touch</a></li>
         </ul>
+        <div class="hero-resume" id="resume">
+          <ul class="link-row resume-downloads">
+            <li><a href={resume.links.pdf}>Download résumé <span class="file-type">PDF</span></a></li>
+            {resume.links.variants.filter((variant) => variant.href !== resume.links.pdf).map((variant) => (
+              <li><a href={variant.href}>{variant.label} <span class="file-type">PDF</span></a></li>
+            ))}
+          </ul>
+          <ul class="link-row resume-downloads">
+            <li><a href={resume.links.linkedin}>LinkedIn</a></li>
+            <li><a href="https://github.com/joses2017smjh">GitHub</a></li>
+            <li><a href={`mailto:${site.email}`}>Get in touch</a></li>
+          </ul>
+          <p class="meta resume-updated">Résumé updated October 18, 2026</p>
+        </div>
       </div>
-      <section class="education-overview" id="resume" aria-labelledby="background-title">
+      <section class="education-overview" id="education" aria-labelledby="background-title">
         <p class="eyebrow">Oregon State University</p>
         <h2 id="background-title">Education & experience</h2>
         <ol class="education-timeline" aria-label="Education and experience timeline">
@@ -51,24 +63,16 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
             </li>
           ))}
         </ol>
-        <ul class="link-row resume-downloads">
-          <li><a class="button-link" href={resume.links.pdf}>Read my résumé <span class="file-type">PDF</span></a></li>
-          {resume.links.variants.map((variant) => (
-            <li><a href={variant.href}>{variant.label} <span class="file-type">PDF</span></a></li>
-          ))}
-          <li><a href={resume.links.linkedin}>LinkedIn</a></li>
-          <li><a href="https://github.com/joses2017smjh">GitHub profile</a></li>
-        </ul>
-        <p class="meta resume-updated">Résumé updated October 18, 2026</p>
       </section>
     </section>
 
     <section class="work-section" id="projects" aria-labelledby="work-title">
-      <div class="section-heading">
+      <div class="section-heading has-control">
         <div>
           <p class="eyebrow">01 · Robotics & embodied AI</p>
           <h2 id="work-title">Humanoid + Hardware</h2>
         </div>
+        <button id="demo-playback" type="button" hidden>Pause demos</button>
       </div>
       <h3 class="project-group-title">Simulation</h3>
       <ul class="project-grid project-grid-three">
