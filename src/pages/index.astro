@@ -32,6 +32,35 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <li><a href={`mailto:${site.email}`}>Get in touch</a></li>
         </ul>
       </div>
+      <section class="education-overview" id="resume" aria-labelledby="background-title">
+        <p class="eyebrow">Oregon State University</p>
+        <h2 id="background-title">Education & experience</h2>
+        <ol class="education-timeline" aria-label="Education and experience timeline">
+          {resume.timeline.map((entry) => (
+            <li>
+              <time datetime={entry.datetime}>{entry.date}</time>
+              <div>
+                <h3>{entry.title}</h3>
+                <p>{entry.focus}</p>
+                {entry.roles.length > 0 && (
+                  <ul>
+                    {entry.roles.map((role) => <li>{role}</li>)}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <ul class="link-row resume-downloads">
+          <li><a class="button-link" href={resume.links.pdf}>Read my résumé <span class="file-type">PDF</span></a></li>
+          {resume.links.variants.map((variant) => (
+            <li><a href={variant.href}>{variant.label} <span class="file-type">PDF</span></a></li>
+          ))}
+          <li><a href={resume.links.linkedin}>LinkedIn</a></li>
+          <li><a href="https://github.com/joses2017smjh">GitHub profile</a></li>
+        </ul>
+        <p class="meta resume-updated">Résumé updated October 18, 2026</p>
+      </section>
     </section>
 
     <section class="work-section" id="projects" aria-labelledby="work-title">
@@ -64,7 +93,7 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
             <div class="hardware-dashboard-link">
               <a href="/media/humanoid-vr/operator-dashboard.jpg">Operator panels</a>
               <span aria-hidden="true"> · </span>
-              <a href="/media/humanoid-vr/imu-telemetry-full-panel.jpg">Full telemetry panel</a>
+              <a href="https://www.linkedin.com/feed/update/urn:li:activity:7511860298836832256/">LinkedIn post</a>
             </div>
           </div>
           <div class="hardware-copy">
@@ -138,36 +167,6 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           </li>
         ))}
       </ul>
-    </section>
-
-    <section class="about-work" id="resume" aria-labelledby="background-title">
-      <div>
-        <p class="eyebrow">Oregon State University</p>
-        <h2 id="background-title">Education & experience</h2>
-        <ol class="education-timeline" aria-label="Education and experience timeline">
-          {resume.timeline.map((entry) => (
-            <li>
-              <time datetime={entry.datetime}>{entry.date}</time>
-              <div>
-                <h3>{entry.degree}</h3>
-                <p>{entry.focus}</p>
-                <ul>
-                  {entry.roles.map((role) => <li>{role}</li>)}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ol>
-        <ul class="link-row">
-          <li><a class="button-link" href={resume.links.pdf}>Read my résumé <span class="file-type">PDF</span></a></li>
-          {resume.links.variants.map((variant) => (
-            <li><a href={variant.href}>{variant.label} <span class="file-type">PDF</span></a></li>
-          ))}
-          <li><a href={resume.links.linkedin}>LinkedIn</a></li>
-          <li><a href="https://github.com/joses2017smjh">GitHub profile</a></li>
-        </ul>
-        <p class="meta resume-updated">Résumé updated October 18, 2026</p>
-      </div>
     </section>
 
     <section class="contact-block" id="contact" aria-labelledby="contact-title">
