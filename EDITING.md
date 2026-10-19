@@ -68,7 +68,13 @@ Open the project's file in `src/content/projects/`. It's all labeled fields:
 
 ```yaml
 title: "..."        # max 60 characters
-summary: "..."      # the one-liner on the card — max 120
+summary: "..."      # case-study intro and page description — max 120
+card:               # concise homepage copy; full detail stays below
+  title: "..."      # max 45 characters
+  summary: "..."    # what you built — max 100
+  evidence: "..."   # one result with its scope — max 120
+  caption: "..."    # brief demo context — max 80
+  tags: ["Python", "PyTorch", "Robotics"] # exactly 3 relevant keywords
 problem: >-         # 2-3 sentences — max 400
   ...
 approach: >-        # 3-5 sentences — max 700

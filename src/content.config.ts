@@ -17,9 +17,16 @@ const projects = defineCollection({
     summary: z.string().max(120),
     featured: z.boolean().default(false),
     track: z.enum(["humanoid", "rag", "vision", "hardware", "coursework"]),
-    focus: z.string().max(60),
     contribution: z.string().max(400),
-    evidence: z.string().max(180),
+    // Recruiter-facing cards: short copy, one result, three chosen keywords.
+    // Keep the complete narrative and stack on the case-study page.
+    card: z.object({
+      title: z.string().max(45),
+      summary: z.string().max(100),
+      evidence: z.string().max(120),
+      caption: z.string().max(80),
+      tags: z.array(z.string().max(24)).length(3),
+    }),
     // 2-3 sentences.
     problem: z.string().max(400),
     // 3-5 sentences, hiring-manager altitude.

@@ -69,8 +69,12 @@ date: 2026-10-14
 order: 1
 featured: true
 track: humanoid
-focus: Learned control / Sim-to-sim
-evidence: 'Later R1HO: 3/3 fine-tuning seeds qualify. Simulation with simulator yaw, one shared parent, and existing benchmarks.'
+card:
+  title: "Humanoid Locomotion"
+  summary: "Trained reinforcement learning policies for humanoid walking across simulators."
+  evidence: "R1HO: 3/3 fine-tuning seeds qualified; simulation, shared parent, simulator yaw."
+  caption: "Selected terrain demo; simulation at real time."
+  tags: ["PPO","Isaac Lab","MuJoCo"]
 contribution: >-
   Built task overlays, headless MuJoCo scoring, checkpoint qualification, replay
   checks, and rollout visualizations. Kept the upstream observation path and

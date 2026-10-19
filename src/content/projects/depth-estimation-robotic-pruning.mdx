@@ -112,8 +112,12 @@ paperStrip:
 date: 2026-10-14
 order: 8
 featured: true
-focus: Computer vision / Metric depth
-evidence: '0.0445 ± 0.0057 m trunk RMSE across five stored best-validation scores. Synthetic data; field accuracy unverified.'
+card:
+  title: "SPUR: Metric Depth for Robotics"
+  summary: "Built multi-view depth models and a containerized inference API."
+  evidence: "4.45 ± 0.57 cm trunk RMSE; 5 synthetic best-validation runs."
+  caption: "Orchard camera rig; model accuracy evaluated on synthetic data."
+  tags: ["PyTorch","3D Perception","ONNX Runtime"]
 contribution: Built the synthetic orchard, the evaluation protocol, DINOv2 RGB-D refinement, and the FastAPI/ONNX
   service. Real orchard accuracy is not claimed.
 ---

@@ -44,8 +44,12 @@ date: 2026-10-14
 order: 2
 featured: true
 track: humanoid
-focus: Mapping / Planning / Sensor evaluation
-evidence: '12/12 fresh humanoid maze goals without falls or wall contacts. Simulation with oracle pose/goal.'
+card:
+  title: "Humanoid Navigation"
+  summary: "Combined learned walking, lidar mapping, and A* planning for maze navigation."
+  evidence: "12/12 fresh maze goals; no falls or wall contacts. Simulation with oracle pose/goal."
+  caption: "Selected rollout, 5× playback; extra sensor panels display-only."
+  tags: ["MuJoCo","LiDAR","A* Planning"]
 contribution: >-
   Built the mapping and planning stack, sensor instrumentation, command filters,
   and matched evaluation protocols. Separated learned control, scripted planning,

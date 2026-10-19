@@ -11,11 +11,7 @@ interface Props {
 
 const { project, number } = Astro.props;
 const {
-  title,
-  summary,
-  evidence,
-  focus,
-  tags,
+  card,
   repo,
   technicalReadme,
   video,
@@ -25,7 +21,6 @@ const {
   image,
   pair,
   alt,
-  figcaption,
 } = project.data;
 const href = `/projects/${project.id}`;
 ---
@@ -42,19 +37,18 @@ const href = `/projects/${project.id}`;
           so it overrides the pair here while the detail page keeps it. */}
       pair={cardVideo ? undefined : pair}
       alt={alt}
-      caption={figcaption}
+      caption={card.caption}
       href={href}
     />
     <div class="project-row">
-      <h3 class="project-title"><a href={href}>{title}</a></h3>
+      <h3 class="project-title"><a href={href}>{card.title}</a></h3>
     </div>
-    <p class="project-focus">{focus}</p>
-    <p class="project-summary">{summary}</p>
-    <p class="project-evidence">{evidence}</p>
-    <TagList tags={tags.slice(0, 4)} />
+    <p class="project-summary">{card.summary}</p>
+    <p class="project-evidence">{card.evidence}</p>
+    <TagList tags={card.tags} />
     <div class="project-links">
-      <a href={href}>View case study <span aria-hidden="true">&rarr;</span></a>
-      {(technicalReadme || repo) && <a href={technicalReadme ?? `${repo}#readme`}>Technical README</a>}
+      <a href={href}>Case study <span aria-hidden="true">&rarr;</span></a>
+      {(technicalReadme || repo) && <a href={technicalReadme ?? repo}>Code</a>}
     </div>
   </article>
 </li>

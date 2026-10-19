@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import ProjectItem from "../components/ProjectItem.astro";
 import Figure from "../components/Figure.astro";
+import TagList from "../components/TagList.astro";
 import { site } from "../site.config";
 import { resume } from "../resume.config";
 import { sortedProjects } from "../lib/projects";
@@ -49,7 +50,6 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <p class="eyebrow">01 · Robotics & embodied AI</p>
           <h2 id="work-title">Humanoid Simulation</h2>
         </div>
-        <p>Three parts of the same robot system: walk across terrain, navigate a maze, and carry out a language instruction.</p>
       </div>
       <ul class="project-grid project-grid-three">
         {humanoid.map((project) => <ProjectItem project={project} number={projects.indexOf(project) + 1} />)}
@@ -62,7 +62,6 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <p class="eyebrow">From simulation to the workshop</p>
           <h2 id="hardware-title">Physical Robotics</h2>
         </div>
-        <p>The assembled Berkeley Humanoid Lite, its hardware bring-up, and Quest arm control.</p>
       </div>
       <article class="hardware-showcase">
         <div class="hardware-demo">
@@ -71,7 +70,7 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
             video={teleop.data.video}
             poster={teleop.data.poster}
             alt={teleop.data.alt}
-            caption={teleop.data.figcaption}
+            caption={teleop.data.card.caption}
           />
           <div class="hardware-dashboard-link">
             <a href="/media/humanoid-vr/operator-dashboard.jpg">Operator panels</a>
@@ -80,10 +79,10 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           </div>
         </div>
         <div class="hardware-copy">
-          <h3>Quest VR Teleoperation</h3>
-          <p class="hardware-intro">Control physical humanoid arms from a VR headset.</p>
-          <p>I built the WebXR-to-robot control path, connecting Quest controller tracking to inverse kinematics and SocketCAN arm commands, with per-joint calibration and live feedback.</p>
-          <p class="project-evidence">Calibration checks recorded for all ten arm joints.</p>
+          <h3>{teleop.data.card.title}</h3>
+          <p class="hardware-intro">{teleop.data.card.summary}</p>
+          <p class="project-evidence">{teleop.data.card.evidence}</p>
+          <TagList tags={teleop.data.card.tags} />
           <ul class="link-row hardware-actions">
             <li><a class="button-link" href="/projects/berkeley-humanoid-vr">View project</a></li>
             <li><a href={teleop.data.repo}>GitHub</a></li>
@@ -115,7 +114,6 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <p class="eyebrow">02 · AI & software engineering</p>
           <h2 id="ai-title">RAG & Agents</h2>
         </div>
-        <p>Research-file retrieval and soccer analysis with source tracing, tool calls, and inspectable evaluations.</p>
       </div>
       <ul class="project-grid">
         {rag.map((project) => <ProjectItem project={project} number={projects.indexOf(project) + 1} />)}
@@ -128,7 +126,6 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <p class="eyebrow">03 · Perception & manipulation</p>
           <h2 id="vision-title">Computer Vision & VLA</h2>
         </div>
-        <p>Vision-language-action policies for folding, RGB-D control for pruning, and metric depth for robotic perception.</p>
       </div>
       <ul class="project-grid project-grid-three">
         {vision.map((project) => <ProjectItem project={project} number={projects.indexOf(project) + 1} />)}
@@ -141,14 +138,13 @@ if (!teleop) throw new Error("The physical robotics case study is missing.");
           <p class="eyebrow">Graduate coursework</p>
           <h2 id="coursework-title">Language and 3D learning</h2>
         </div>
-        <p>Model implementations with inspectable predictions and error analysis.</p>
       </div>
       <ul class="supporting-projects">
         {coursework.map((project) => (
           <li>
-            <h3><a href={`/projects/${project.id}`}>{project.data.title}</a></h3>
-            <p>{project.data.summary}</p>
-            <a href={`/projects/${project.id}`}>Results and implementation <span aria-hidden="true">&rarr;</span></a>
+            <h3><a href={`/projects/${project.id}`}>{project.data.card.title}</a></h3>
+            <p>{project.data.card.summary}</p>
+            <a href={`/projects/${project.id}`}>Case study <span aria-hidden="true">&rarr;</span></a>
           </li>
         ))}
       </ul>
