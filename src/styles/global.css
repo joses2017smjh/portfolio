@@ -153,8 +153,7 @@ a:focus-visible {
    Site chrome
    --------------------------------------------------------------------------- */
 .site-header {
-  flex-wrap: wrap;
-  max-width: var(--measure);
+  max-width: 72rem;
   margin-inline: auto;
   width: 100%;
   padding: var(--space-3) var(--space-2) 0;
@@ -166,13 +165,19 @@ a:focus-visible {
 }
 
 .site-header nav {
-  flex-wrap: wrap;
-  min-width: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: var(--space-3);
-  row-gap: var(--space-1);
   min-width: 0;
+  max-width: 100%;
+  padding: 4px 2px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.site-header nav a {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .site-header a {
@@ -473,41 +478,86 @@ a:focus-visible {
   letter-spacing: -0.01em;
 }
 
+/* Centered rail: dates and entries swap sides on every row. */
 .education-timeline > li {
   position: relative;
   display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  gap: var(--space-2);
-  padding: 0 0 var(--space-2) var(--space-2);
-  border-left: 1px solid var(--hairline);
+  grid-template-columns: minmax(0, 1fr) 1.25rem minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: var(--space-1);
+  padding-bottom: 0.6rem;
 }
 
 .education-timeline > li:last-child {
   padding-bottom: 0;
 }
 
+/* The line runs through the middle column. */
+.education-timeline > li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: var(--hairline);
+}
+
+.education-timeline > li:first-child::after {
+  top: 0.55rem;
+}
+
+.education-timeline > li:last-child::after {
+  bottom: auto;
+  height: 0.55rem;
+}
+
 .education-timeline > li::before {
   content: "";
   position: absolute;
-  left: -4px;
-  top: 0.55rem;
+  left: 50%;
+  top: 0.4rem;
+  z-index: 1;
   width: 7px;
   height: 7px;
   border-radius: 50%;
+  transform: translateX(-50%);
   background: var(--blue);
+  box-shadow: 0 0 0 2px var(--bg);
 }
 
 .education-timeline time {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--faint);
-  padding-top: 0.2rem;
+  white-space: nowrap;
+}
+
+.education-timeline > li > div {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.education-timeline > li:nth-child(even) time {
+  grid-column: 3;
+  text-align: left;
+}
+
+.education-timeline > li:nth-child(even) > div {
+  grid-column: 1;
+  text-align: right;
 }
 
 .education-timeline h3 {
   margin: 0;
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: 500;
+  line-height: 1.3;
 }
 
 .education-timeline p,
@@ -516,12 +566,8 @@ a:focus-visible {
   padding: 0;
   color: var(--dim);
   list-style: none;
-  font-size: var(--text-sm);
-}
-
-.education-timeline ul {
-  margin-top: 0;
-  font-size: var(--text-sm);
+  font-size: var(--text-xs, 0.8rem);
+  line-height: 1.35;
 }
 
 .resume-updated {
@@ -546,10 +592,9 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 34rem) {
-  .education-timeline > li {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-1);
+@media (max-width: 26rem) {
+  .education-timeline time {
+    white-space: normal;
   }
 }
 
